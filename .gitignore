@@ -10,7 +10,7 @@ storybook/
 !.vscode/launch.json
 !.vscode/extensions.json
 .nova
-package-lock.json
+yarn.lock
 coverage
 yarn-error.log
 cypress.env.json

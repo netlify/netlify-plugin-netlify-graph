@@ -29,24 +29,18 @@
   },
   "scripts": {
     "build": "netlify-build",
-    "test": "npm run lint && npm run ava",
-    "lint": "npm run eslint && npm run prettier",
-    "eslint": "eslint --ignore-path .gitignore --fix --cache --format=codeframe --max-warnings=0 \"{src,init}/**/*.js\"",
     "prettier": "prettier --ignore-path .gitignore --write --loglevel warn \"{.github,src,init}/**/*.{js,md,yml,json}\" \"*.{js,md,yml,json}\"",
-    "ava": "cross-env FORCE_COLOR=1 ava --verbose",
     "release": "release-it"
   },
   "devDependencies": {
-    "@netlify/build": "^20.1.0",
-    "ava": "^3.13.0",
-    "cross-env": "^7.0.2",
     "execa": "^5.0.0",
     "prettier": "^2.5.1",
     "release-it": "^14.0.3",
     "typescript": "^4.5.2"
   },
   "dependencies": {
-    "@netlify/config": "16.0.7",
+    "@netlify/build": "^26.3.14",
+    "@netlify/config": "^17.0.18",
     "@netlify/framework-info": "^9.0.2",
     "netlify-onegraph-internal": "0.1.17"
   }
