@@ -53,6 +53,7 @@ const makeDefaultNetlifyGraphConfig = ({
     ...netlifyGraphPath,
     NetlifyGraph.defaultGraphQLSchemaFilename,
   ];
+
   const netlifyGraphRequirePath = [`./netlifyGraph`];
   const moduleType = baseConfig.moduleType || 'esm';
 
@@ -253,6 +254,12 @@ const getNetlifyGraphConfig = async ({ config, options, site }) => {
         path.sep
       )) ||
     defaultConfig.netlifyGraphTypeDefinitionsFilename;
+
+  const graphQLOperationsSourceDirectory =
+    (userSpecifiedConfig.graphQLOperationsSourceDirectory &&
+      userSpecifiedConfig.graphQLOperationsSourceDirectory.split(path.sep)) ||
+    defaultFrameworkConfig.graphQLOperationsSourceDirectory
+
   const graphQLOperationsSourceFilename =
     (userSpecifiedConfig.graphQLOperationsSourceFilename &&
       userSpecifiedConfig.graphQLOperationsSourceFilename.split(path.sep)) ||
@@ -297,6 +304,7 @@ const getNetlifyGraphConfig = async ({ config, options, site }) => {
     netlifyGraphPath,
     netlifyGraphImplementationFilename,
     netlifyGraphTypeDefinitionsFilename,
+    graphQLOperationsSourceDirectory,
     graphQLOperationsSourceFilename,
     graphQLSchemaFilename,
     graphQLConfigJsonFilename,
