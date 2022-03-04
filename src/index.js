@@ -581,7 +581,7 @@ Run \`netlify graph:init\` to generate a new token.`
       readGraphQLOperationsSourceFiles(netlifyGraphConfig);
     if (currentOperationsDoc.trim().length === 0) {
       console.warn(
-        'No Graph operations library found, skipping production client generation.'
+        'No Graph operations library files found, skipping production client generation.'
       );
       return;
     }
