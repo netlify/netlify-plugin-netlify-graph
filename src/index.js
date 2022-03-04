@@ -47,7 +47,7 @@ const makeDefaultNetlifyGraphConfig = ({
   ];
   const graphQLOperationsSourceDirectory = [
     ...netlifyGraphPath,
-    NetlifyGraph.defaultSourceOperationsDirectoryName,
+    ...NetlifyGraph.defaultSourceOperationsDirectoryName,
   ];
   const graphQLSchemaFilename = [
     ...netlifyGraphPath,
