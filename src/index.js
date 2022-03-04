@@ -513,6 +513,8 @@ Run \`netlify graph:init\` to generate a new token.`
       site: siteInfo,
     });
 
+    console.log("netlifyGraphConfig", netlifyGraphConfig)
+
     let netlifyGraphJson;
     try {
       netlifyGraphJson = JSON.parse(
