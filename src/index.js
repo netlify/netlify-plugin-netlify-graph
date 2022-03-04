@@ -359,6 +359,9 @@ const readGraphQLOperationsSourceFiles = (netlifyGraphConfig) => {
   const operationFiles = []
 
   const filenames = fs.readdirSync(operationsPath)
+
+  console.log("operationsPath", operationsPath)
+  console.log("filenames", filenames)
   filenames.forEach((filename) => {
     if (/.*\.(graphql?)/gi.test(filename)) {
       const content = fs.readFileSync(path.resolve(operationsPath, filename), 'utf8')
@@ -388,6 +391,8 @@ const readGraphQLOperationsSourceFiles = (netlifyGraphConfig) => {
   }, emptyDocDefinitionNode)
 
   const source = print(parsedDoc)
+
+  console.log("GraphQL source", source)
 
   return source
 }
