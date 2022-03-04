@@ -13,8 +13,8 @@ import process from 'process'
 
 const { Kind, parse, print } = GraphQL
 
-const condLog = (message) => {
-  process.env.NETLIFY_GRAPH_DEBUG === 'true' && console.log(message);
+const condLog = (...args) => {
+  process.env.NETLIFY_GRAPH_DEBUG === 'true' && console.log(...args);
 }
 
 /**
@@ -607,7 +607,7 @@ Run \`netlify graph:init\` to generate a new token.`
 
     const { failedPersistedFunctions, functionDefinitions } =
       await generatePersistedFunctionsFile({
-        logger: console.log,
+        logger: condLog,
         netlifyGraphConfig,
         schema,
         operationsDoc: currentOperationsDoc,
