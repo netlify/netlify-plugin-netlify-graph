@@ -42,6 +42,6 @@
     "@netlify/build": "^26.3.14",
     "@netlify/config": "^17.0.18",
     "@netlify/framework-info": "^9.0.2",
-    "netlify-onegraph-internal": "0.1.18"
+    "netlify-onegraph-internal": "0.2.0"
   }
 }
