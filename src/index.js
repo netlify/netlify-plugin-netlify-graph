@@ -9,8 +9,13 @@ import {
   OneGraphClient,
 } from 'netlify-onegraph-internal';
 import path from 'path';
+import process from 'process'
 
 const { Kind, parse, print } = GraphQL
+
+const condLog = (message) => {
+  process.env.NETLIFY_GRAPH_DEBUG === 'true' && console.log(message);
+}
 
 /**
  * Remove any relative path components from the given path
@@ -368,8 +373,8 @@ const readGraphQLOperationsSourceFiles = (netlifyGraphConfig) => {
 
   const filenames = fs.readdirSync(operationsPath)
 
-  console.log("operationsPath", operationsPath)
-  console.log("filenames", filenames)
+  condLog("operationsPath", operationsPath)
+  condLog("filenames", filenames)
   filenames.forEach((filename) => {
     if (/.*\.(graphql?)/gi.test(filename)) {
       const content = fs.readFileSync(path.resolve(operationsPath, filename), 'utf8')
@@ -400,7 +405,7 @@ const readGraphQLOperationsSourceFiles = (netlifyGraphConfig) => {
 
   const source = print(parsedDoc)
 
-  console.log("GraphQL source", source)
+  condLog("GraphQL source", source)
 
   return source
 }
@@ -521,7 +526,7 @@ Run \`netlify graph:init\` to generate a new token.`
       site: siteInfo,
     });
 
-    console.log("netlifyGraphConfig", netlifyGraphConfig)
+    condLog("netlifyGraphConfig", netlifyGraphConfig)
 
     let netlifyGraphJson;
     try {
@@ -537,7 +542,7 @@ Run \`netlify graph:init\` to generate a new token.`
       );
     }
 
-    console.log('Creating a new Netlify Graph schema');
+    condLog('Creating a new Netlify Graph schema');
 
     const createGraphQLSchemaResult =
       await OneGraphClient.executeCreateGraphQLSchemaMutation(
@@ -557,7 +562,7 @@ Run \`netlify graph:init\` to generate a new token.`
         }
       );
 
-    console.log(
+    condLog(
       'Created a new Netlify Graph schema',
       createGraphQLSchemaResult
     );
