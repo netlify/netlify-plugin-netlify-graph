@@ -39,7 +39,7 @@
     "typescript": "^4.5.2"
   },
   "dependencies": {
-    "@netlify/build": "^26.3.14",
+    "@netlify/build": "^27.18.5",
     "@netlify/config": "^17.0.18",
     "@netlify/framework-info": "^9.0.2",
     "netlify-onegraph-internal": "0.2.0"
