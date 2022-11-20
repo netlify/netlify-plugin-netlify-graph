@@ -41,7 +41,7 @@
   "dependencies": {
     "@netlify/build": "^26.3.14",
     "@netlify/config": "^17.0.18",
-    "@netlify/framework-info": "^9.0.2",
+    "@netlify/framework-info": "^9.5.1",
     "netlify-onegraph-internal": "0.2.0"
   }
 }
